@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+html {
+  width: 100vw;
+  background-color: rgb(30, 30, 30);
+  color: white;
+  overflow-x: hidden;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif !important;
+  font-size: 1.02rem;
+}
+main {
+  overflow-x: scroll;
+}
+
+main::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.konyvek {
+  width: fit-content;
+  display: flex;
+  margin: auto;
+  height: 20rem;
+  min-width: 500px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.konyvek div {
+  margin: auto;
+}
+.konyvek img {
+  cursor: pointer;
+
+  transition: ease-in-out 0.5s;
+}
+.konyvek img:hover {
+  transform: scale(1.5);
+}
+
+.uj-konyv-form {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 500px;
+  height: 100%;
+  padding-top: 2rem;
+  gap: 1rem;
+  background-color: rgb(20, 20, 20);
+  justify-content: stretch;
+}
+.uj-konyv-form img {
+  height: 60%;
+}
+.uj-konyv-form label {
+  min-width: 100px;
+  display: inline-block;
+}
+.uj-konyv-form input {
+  outline: none;
+  min-width: 300px;
+  text-indent: 10px;
+  padding: 0.25rem;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+}
+
+.uj-konyv,
+.mod-konyv,
+.del-konyv {
+  width: 100px;
+  padding: 0.25rem;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  margin: auto;
+  color: dodgerblue;
+  transition: ease-in-out 0.3s;
+  border-color: dodgerblue;
+  color: dodgerblue;
+  border: 1px solid;
+  margin: 0.5rem;
+  background-color: unset;
+}
+
+.konyv-gombok {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.bal,
+.jobb {
+  font-size: 1.2rem;
+  background-color: unset;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  color: dodgerblue;
+  transition: ease-in-out 0.3s;
+  border-color: dodgerblue;
+  color: dodgerblue;
+  border: 1px solid;
+  margin: 0.5rem;
+  margin-top: 0;
+}
+.bal:hover,
+.jobb:hover,
+button:hover {
+  color: white;
+  border-color: transparent;
+}
+.konyv-control {
+  border-radius: 5px;
+  position: relative;
+  margin: auto;
+
+  width: fit-content;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.hiba-uzenet {
+  margin: 1rem;
+  text-align: center;
+  color: rgb(238, 34, 34);
+}
+
+header {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 2rem;
+}
+header .icon {
+  width: 50px;
+  height: auto;
+}
+
+header div {
+  cursor: pointer;
+  color: white;
+  transition: ease-in-out 0.3s;
+}
+header div:hover {
+  color: aliceblue;
+}
+section {
+  display: grid;
+  grid-template-columns:  auto;
+  justify-items: center;
+}
+.lista {
+  padding: 1rem;
+}
+.lista ul h2 {
+  color: dodgerblue;
+  border-bottom: 1px solid;
+  border-color: dodgerblue;
+  font-style: italic;
+}
+.lista ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: stretch;
+  padding: 0.5rem;
+
+}
+.lista ul li {
+  text-indent: 2rem;
+  list-style-type: none;
+  padding-top: 1.25rem;
+}
+.new_mod_del-close {
+  padding-bottom: 1rem;
+}
+.welcome-user{
+  text-align: left!important;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.welcome-text1{
+  text-transform: uppercase;
+  font-size: 1.3rem;  
+  color: dodgerblue;
+}
+.welcome-text {
+  text-transform: uppercase;
+
+  color: dodgerblue;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+/* header linkek */
+.new_mod_del-open {
+  transition: ease-in-out 0.3s;
+  padding: 0.5rem;
+  border-bottom: 1px solid transparent;
+}
+.logout {
+  transition: ease-in-out 0.3s;
+  padding: 0.5rem;
+  border-bottom: 1px solid transparent;
+}
+.new_mod_del-open:hover,
+.logout:hover {
+  border-bottom: 1px solid dodgerblue;
+}
+#kereses {
+  margin: auto;
+  width: 300px;
+  padding: 0.5rem;
+  display: block;
+  margin-top: 1rem;
+  outline: none;
+  background-color: rgb(44, 43, 43);
+  box-shadow: none;
+  border: none;
+  border-radius: 5px;
+  color: aliceblue;
+}
+.username{
+  font-size: 1rem;
+  color:white;
+}

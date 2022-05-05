@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="ajax.js"></script>
+    <script src="konyvlista.js"></script>
+    <script src="konyv.js"></script>
+    <script src="konyvek.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="welcome-text">
+        <span><img src="kepek/books-stack-of-three.png" class="icon" /></span>
+        <div class="welcome-user"><span class="welcome-text1">Üdvözlünk</span><span class="username"></span></div>
+      </div>
+      <div class="new_mod_del-open">Új / Módosít / Törlés</div>
+      <div class="logout">Kijelentkezés</div>
+    </header>
+    <main>
+      <div class="konyvek"></div>
+    </main>
+    <div class="konyv-control">
+      <button class="jobb"><</button>
+      <button class="bal">></button>
+    </div>
+    <input type="search" placeholder="írj ide..." id="kereses" />
+    <section>
+      <div class="lista"></div>
+      <form class="uj-konyv-form">
+        <div class="new_mod_del-close">X</div>
+        <img src="" class="aktivkep" />
+        <div class="hiba-uzenet">Kérlek töltsd ki az alábbi mezőket!</div>
+        <div>
+          <label>Cím:</label>
+          <input type="text" placeholder="Cím" id="cim" required />
+        </div>
+        <div>
+          <label>Kép linkje:</label>
+          <input type="text" placeholder="Kép linkje" id="kep" />
+        </div>
+        <div>
+          <label>Értékelés</label>
+          <input type="range" min="1" max="5" id="ertek" />
+        </div>
+        <div class="konyv-gombok">
+          <button class="uj-konyv">Küld</button>
+          <button class="mod-konyv">Módosít</button>
+          <button class="del-konyv">Törlés</button>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>

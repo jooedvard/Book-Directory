@@ -1,0 +1,25 @@
+{
+  "name": "book_directory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "express": "^4.18.0",
+    "express-session": "^1.17.2",
+    "jquery": "^3.6.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.16",
+    "pbkdf2-password": "^1.2.1",
+    "pbkdf2-password-hash": "^3.0.0"
+  },
+  "dependencies": {
+    "jsdom": "^19.0.0"
+  }
+}

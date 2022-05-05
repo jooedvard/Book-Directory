@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif !important;
+  font-size: 1.02rem;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+form {
+  display: grid;
+  width: 100%;
+  min-width: 500px;
+  grid-template-columns: 30% 60%;
+
+  margin: auto;
+  align-items: center;
+  gap:1rem;
+ 
+}
+.button {
+  margin: auto;
+  margin-top: 2rem;
+  display: block;
+  padding: 0.75rem;
+  width: 150px;
+  border: none;
+  border-radius: 15px;
+  background-color: dodgerblue;
+  color: white;
+  transition: ease-in-out .3s;
+  cursor: pointer;
+}
+.button:hover{
+  background-color: rgb(1, 112, 223);
+}
+input[type="text"],
+input[type="password"] {
+ 
+  padding: 0.5rem;
+  outline: none;
+  border: none;
+  background-color: rgb(240, 240, 240);
+}
+label {
+ 
+  padding-bottom: .5rem;
+}
+h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  text-shadow: 10px 10px rgb(223, 223, 189);
+  padding: 1rem;
+}
+.icon {
+  width: 50px;
+  display: block;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+@media screen and (max-width:500px) {
+  form{
+    grid-template-columns: 100%;
+    min-width: 100vw;
+    padding: 2rem;
+  }
+}
