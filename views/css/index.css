@@ -53,8 +53,9 @@ main::-webkit-scrollbar {
   height: 100%;
   padding-top: 2rem;
   gap: 1rem;
-  background-color: whitesmoke;
+  background-color: rgb(255, 251, 251);
   justify-content: stretch;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
 }
 .uj-konyv-form img {
   height: 60%;
@@ -171,6 +172,7 @@ section {
   background-color: whitesmoke;
   margin-top: 1rem;
   padding: 1rem;
+  width: 100%;
 }
 .lista ul h2 {
   color: dodgerblue;

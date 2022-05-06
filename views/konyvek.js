@@ -72,6 +72,7 @@ $(function () {
 
       ajax.ajaxApiPost("/konyvek", obj, () => {
         fetchKonyvek();
+        $(".aktivkep").attr("src",obj.kep);
       });
     });
   }
@@ -150,6 +151,7 @@ $(function () {
 
   function inputEllenorzes(obj) {
     let mehet = true;
+    console.log(obj)
     for (const key in obj) {
       if (obj[key] == "") {
         console.log("üres");
