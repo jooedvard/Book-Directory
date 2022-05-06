@@ -8,17 +8,16 @@ const app = express();
 app.use(express.static("views"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.urlencoded({ extended: false }));
+
 app.use(
   session({
-    resave: false, // don't save session if unmodified
-    saveUninitialized: false, // don't create session until something stored
+    resave: false,
+    saveUninitialized: false,
     secret: "shhhh, very secret",
-   
   })
 );
 
-let adatok = {user:"" };
+let adatok = { user: "" };
 
 let csatlakozas = mysql.createConnection({
   host: "localhost",
@@ -33,9 +32,12 @@ csatlakozas.connect(() => {
 
 app.listen("3000");
 
-app.get("/", (req, valasz) => {
-  console.log(adatok.user)
-  valasz.sendFile(path.join(__dirname, "../views/index.html"));
+app.get("/", (req, res) => {
+  if (!req.session.user) {
+    res.redirect("/login");
+  } else {
+    res.sendFile(path.join(__dirname, "../views/konyvek.html"));
+  }
 });
 
 app.get("/login", (req, res) => {
@@ -98,17 +100,16 @@ app.delete("/konyvek/:id", function (req, res) {
 //Kereső
 app.get("/konyvek/:adat", (req, res) => {
   let keresendo = req.params;
-  console.log(keresendo);
+ 
   let sql = `Select * from konyv WHERE cim LIKE '%${keresendo.adat}%'`;
   csatlakozas.query(sql, (hiba, eredmeny) => {
     if (hiba) throw hiba;
-    console.log(eredmeny);
+   
     res.send(eredmeny);
   });
 });
 
-
-const crypto = require('crypto');
+const crypto = require("crypto");
 
 app.post("/login", function (req, res, next) {
   let { user, pass } = req.body;
@@ -120,15 +121,57 @@ app.post("/login", function (req, res, next) {
       if (hash == eredmeny[0].password) {
         req.session.regenerate(function () {
           adatok.user = user;
-          
-          res.send({ redirect: "/",user:user });
-          
+          req.session.user = user;
+         
+          res.send({ redirect: "/", user: user });
         });
       }
     }
   });
 });
 
-app.get("/logged",(req,res)=>{
-  res.send(adatok);
+app.get("/logout", function (req, res) {
+
+  req.session.destroy();
+  
+  res.send({ redirect: "/login", user: undefined });
+});
+
+app.get("/logged", (req, res) => {
+ 
+  res.send(req.session.user);
+});
+
+app.post("/kedvenc/add", (req, res) => {
+  let konyv = req.body.konyvId;
+  let user = req.session.user;
+  let sql = `INSERT INTO kedvencek SET ?`;
+  csatlakozas.query(
+    sql,
+    {konyvID : konyv, login: user},
+    function (err, result) {
+      if (err) throw err;
+      res.send();
+    }
+  );
+});
+
+app.get("/kedvencek/",(req,res)=>{
+  let user = req.session.user;
+  let sql = "SELECT * FROM kedvencek where login = '"+ user+"'";
+  console.log(user)
+  csatlakozas.query(sql,function(err,result){
+    if(err) throw err;
+    console.log(result)
+    res.send(result);
+  })
 })
+
+app.delete("/kedvencek/:id", function (req, res) {
+  let sql = `DELETE FROM kedvencek where konyvID = ` + req.params.id;
+  csatlakozas.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log(req.params)
+    res.send("sikeres törlés");
+  });
+});

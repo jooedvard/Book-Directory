@@ -12,6 +12,7 @@
     <script src="konyvlista.js"></script>
     <script src="konyv.js"></script>
     <script src="konyvek.js"></script>
+    <script src="kedvenc.js"></script>
   </head>
   <body>
     <header>
@@ -25,15 +26,21 @@
     <main>
       <div class="konyvek"></div>
     </main>
+    <input type="search" placeholder="írj ide..." id="kereses" />
     <div class="konyv-control">
       <button class="jobb"><</button>
       <button class="bal">></button>
     </div>
-    <input type="search" placeholder="írj ide..." id="kereses" />
+  
     <section>
       <div class="lista"></div>
+      <div class="kedvenc-lista"></div>
       <form class="uj-konyv-form">
         <div class="new_mod_del-close">X</div>
+        <div class="welcome-text">
+          <span><img src="kepek/books-stack-of-three.png" class="icon" /></span>
+          <div class="welcome-user"><span class="welcome-text1">Üdvözlünk</span><span class="username"></span></div>
+        </div>
         <img src="" class="aktivkep" />
         <div class="hiba-uzenet">Kérlek töltsd ki az alábbi mezőket!</div>
         <div>
@@ -52,6 +59,7 @@
           <button class="uj-konyv">Küld</button>
           <button class="mod-konyv">Módosít</button>
           <button class="del-konyv">Törlés</button>
+          <button class="uj-kedvenc">Kedvenc!</button>
         </div>
       </form>
     </section>

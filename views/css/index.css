@@ -2,8 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 html {
   width: 100vw;
-  background-color: rgb(30, 30, 30);
-  color: white;
+
   overflow-x: hidden;
 }
 * {
@@ -29,7 +28,6 @@ main::-webkit-scrollbar {
   height: 20rem;
   min-width: 500px;
   overflow: hidden;
-  margin-bottom: 1rem;
 }
 .konyvek div {
   margin: auto;
@@ -55,7 +53,7 @@ main::-webkit-scrollbar {
   height: 100%;
   padding-top: 2rem;
   gap: 1rem;
-  background-color: rgb(20, 20, 20);
+  background-color: whitesmoke;
   justify-content: stretch;
 }
 .uj-konyv-form img {
@@ -77,17 +75,18 @@ main::-webkit-scrollbar {
 
 .uj-konyv,
 .mod-konyv,
-.del-konyv {
+.del-konyv,
+.uj-kedvenc {
   width: 100px;
   padding: 0.25rem;
   border-radius: 5px;
   border: 1px solid transparent;
   cursor: pointer;
   margin: auto;
-  color: dodgerblue;
-  transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.15s;
+  background-color: dodgerblue !important;
+  color: white;
   border-color: dodgerblue;
-  color: dodgerblue;
   border: 1px solid;
   margin: 0.5rem;
   background-color: unset;
@@ -119,14 +118,14 @@ main::-webkit-scrollbar {
 .bal:hover,
 .jobb:hover,
 button:hover {
-  color: white;
+  color: dodgerblue;
   border-color: transparent;
 }
 .konyv-control {
   border-radius: 5px;
   position: relative;
   margin: auto;
-
+  margin-top: 1rem;
   width: fit-content;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -138,32 +137,39 @@ button:hover {
 }
 
 header {
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin: 2rem;
+
+  padding: 1rem;
+  background-color: whitesmoke;
+
+  top: 0;
 }
-header .icon {
+header .icon,
+.uj-konyv-form .icon {
   width: 50px;
   height: auto;
 }
 
 header div {
   cursor: pointer;
-  color: white;
+
   transition: ease-in-out 0.3s;
 }
 header div:hover {
-  color: aliceblue;
+  color: dodgerblue;
 }
 section {
   display: grid;
-  grid-template-columns:  auto;
+  grid-template-columns: 50% 50%;
   justify-items: center;
+  height: fit-content;
+  margin: 1rem;
 }
 .lista {
+  background-color: whitesmoke;
+  margin-top: 1rem;
   padding: 1rem;
 }
 .lista ul h2 {
@@ -178,7 +184,6 @@ section {
   align-items: center;
   justify-content: stretch;
   padding: 0.5rem;
-
 }
 .lista ul li {
   text-indent: 2rem;
@@ -188,15 +193,15 @@ section {
 .new_mod_del-close {
   padding-bottom: 1rem;
 }
-.welcome-user{
-  text-align: left!important;
+.welcome-user {
+  text-align: left !important;
   display: flex;
   flex-direction: column;
   justify-content: start;
 }
-.welcome-text1{
+.welcome-text1 {
   text-transform: uppercase;
-  font-size: 1.3rem;  
+  font-size: 1.3rem;
   color: dodgerblue;
 }
 .welcome-text {
@@ -228,18 +233,62 @@ section {
 }
 #kereses {
   margin: auto;
-  width: 300px;
-  padding: 0.5rem;
+  width: 400px;
+  padding: 1rem;
   display: block;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   outline: none;
-  background-color: rgb(44, 43, 43);
+  background-color: whitesmoke;
   box-shadow: none;
   border: none;
   border-radius: 5px;
-  color: aliceblue;
 }
-.username{
+.username {
   font-size: 1rem;
-  color:white;
+}
+.kedvencGomb {
+  background-color: yellow !important;
+  color: black;
+}
+
+.kedvenc-lista h2,
+.lista h2 {
+  text-transform: uppercase;
+  text-align: center;
+}
+.kedvenc-lista ul{
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.kedvenc-lista ul li {
+  display: grid;
+  grid-template-columns: 30% 30% 30% 10%;
+  gap: 1rem;
+  align-items: center;
+  min-width: 200px;
+}
+.kedvenc-lista ul li img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+}
+:root {
+  --button-red: rgb(247, 44, 44);
+}
+.kedvenc-lista ul li .torles {
+
+  background-color: transparent;
+  display: block;
+  border: none;
+  font-weight: bold;
+  padding: .5rem;
+  border-radius: 5px;
+  color: var(--button-red);
+  cursor: pointer;
+}
+.kedvenc-lista ul li:hover{
+  background-color: whitesmoke;
+  cursor: pointer;
 }
