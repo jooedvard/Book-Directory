@@ -116,7 +116,7 @@ app.post("/login", function (req, res, next) {
 
   let sql = ` SELECT * FROM login where login = '${user}' `;
   csatlakozas.query(sql, (hiba, eredmeny) => {
-    if (eredmeny.length > 0) {
+    if (eredmeny.length > 0 && eredmeny!= undefined) {
       let hash = crypto.createHash("md5").update(pass).digest("hex");
       if (hash == eredmeny[0].password) {
         req.session.regenerate(function () {

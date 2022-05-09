@@ -1,9 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 html {
-  width: 100vw;
-
+  
   overflow-x: hidden;
+}
+body{
+  width: 100%;
+  margin: auto;
+
 }
 * {
   padding: 0;
@@ -293,4 +297,50 @@ section {
 .kedvenc-lista ul li:hover{
   background-color: whitesmoke;
   cursor: pointer;
+}
+@media screen and (max-width:768px) {
+  section{
+    grid-template-columns: 100%;
+    gap:1rem
+  }
+  #kereses{
+    width: 90%;
+    margin: auto;
+  }
+  header{
+    flex-direction: column;
+    gap: .5rem;
+  }
+  .konyvek{
+    width: 100%;
+  }
+  .kedvenc-lista ul li{
+    gap: 2rem;
+  }
+  .konyvek{
+    overflow-x: scroll;
+  }
+  .konyv-control{
+    display: none;
+  }
+  body{
+    width: 100vw;
+    overflow-x: hidden;
+  }
+  .lista ul{
+    display: grid;
+    grid-template-columns: 100%;
+    
+  }
+  .lista ul h2{
+    width: fit-content;
+    margin: auto;
+  }
+  .lista ul li{
+    text-indent: 0%;
+  }
+  .uj-konyv-form{
+    width: 100%;
+    max-width: 100%;
+  }
 }
